@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: First job that tests conditions
         env:
-          TEST_VARIABLE: ${{ contains(fromJson('["dev"]'), env.BRANCH_NAME) && 'dev' || 'main' }}
+          TEST_VARIABLE: ${{ contains(fromJson('["dev"]'), env.BRANCH_NAME) && '.env.development' || '.env.development.edge' }}
         run: |
           echo "TEST_VARIABLE: $TEST_VARIABLE"
       
