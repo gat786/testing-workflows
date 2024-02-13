@@ -1,0 +1,18 @@
+name: Testing conditions
+on:
+  push:
+    branches:
+      - main
+      - dev
+env:
+  BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First job that tests conditions
+        env:
+          TEST_VARIABLE: ${{ contains(fromJson('["dev"]'), env.BRANCH_NAME) && 'dev' || 'main' }}
+        run: |
+          echo "TEST_VARIABLE: $TEST_VARIABLE"
+      
