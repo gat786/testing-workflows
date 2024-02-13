@@ -17,7 +17,7 @@ jobs:
           echo "TEST_VARIABLE: $TEST_VARIABLE"
       - name: Using ternary condition
         env:
-          FILE_TO_READ: ${{ github.ref == 'refs/head/main' && '.env.development' || '.env.development.edge' }}
+          FILE_TO_READ: ${{ github.ref == 'refs/heads/main' && '.env.development' || '.env.development.edge' }}
         run: |
           echo File to read is $FILE_TO_READ
       
