@@ -15,4 +15,9 @@ jobs:
           TEST_VARIABLE: ${{ contains(fromJson('["dev"]'), env.BRANCH_NAME) && '.env.development' || '.env.development.edge' }}
         run: |
           echo "TEST_VARIABLE: $TEST_VARIABLE"
+      - name: Using ternary condition
+        env:
+          FILE_TO_READ: ${{ github.ref == 'refs/head/main' && '.env.development' || '.env.development.edge' }}
+        run: |
+          echo File to read is $FILE_TO_READ
       
