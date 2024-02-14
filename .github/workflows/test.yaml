@@ -20,5 +20,5 @@ jobs:
         run: |
           echo "TEST_VARIABLE: $TEST_VARIABLE"
       - name: Using composite action
-        uses: gat786/testing-workflows/example@main
+        uses: gat786/testing-workflows/example@dev
       
