@@ -1,9 +1,12 @@
 name: Testing conditions
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
       - dev
+    tags: 
+      - '**'
 env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
   USUAL_FILE: '.env.development'
