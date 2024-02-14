@@ -21,4 +21,5 @@ jobs:
           FILE_TO_READ: ${{ github.ref == 'refs/heads/main' && env.NAMESPACE || join(toJson('[env.NAMESPACE, ".test"]'),'+') }}
         run: |
           echo File to read is $FILE_TO_READ
-      
+      - name: Using composite action
+        uses: gat786/testing-workflows/example@dev 
