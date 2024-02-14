@@ -25,4 +25,4 @@ jobs:
         run: |
           echo File to read is $FILE_TO_READ
       - name: Using composite action
-        uses: gat786/testing-workflows/example@dev 
+        uses: gat786/testing-workflows/example@main
