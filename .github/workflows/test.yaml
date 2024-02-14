@@ -6,6 +6,9 @@ on:
       - dev
 env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+  USUAL_FILE: '.env.development'
+  TEST_FILE: '.env.development.edge'
+  FILE_TO_USE: ${{ github.ref == 'refs/heads/main' && '.env.development' || '.env.development.edge' }} 
   NAMESPACE: 'service-something'
 jobs:
   test-job:
