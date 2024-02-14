@@ -5,6 +5,9 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  branch:
+    description: 'Branch to use'
+    required: true
 outputs:
   random-number:
     description: "Random number"
@@ -29,6 +32,9 @@ runs:
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
-    - name: Run goodbye.sh
-      run: goodbye.sh
+    - name: Using Github Ref
       shell: bash
+      env:
+        GITHUB_REF: ${{ github.ref }}
+      run: |
+        echo "Branch: $GITHUB_REF"
